@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Loan Prediction</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
-    <script>
+
+
+    <script type="text/javascript">
         function validateForm() {
-            let gender = document.getElementsByName["gender"].value;
+            let gender = document.predictform.gender.value;
+            console.log(gender);
             if (gender == "") {
                 alert("Gender must be choosen");
                 return false;
@@ -34,9 +37,7 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link active" href="predictloan">Predict Loan</a>
                     </li>
@@ -44,25 +45,27 @@
             </div>
         </div>
     </nav>
-    <div>
+
+    <div class="text-center text-bg-info text-white p-3">
         <h2><b>{{prediction_text}}</b></h2>
     </div>
+
 
     <section class="text-center" style="margin: 0px 30vw">
         <form name="predictform" action="/predictloan" method="POST" onsubmit="return validateForm()">
             <hr />
             <!-- <legend>Predict Loan</legend> -->
             <select class="form-select" name="gender" aria-label="Default select example">
-          <option selected>Select Gender</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-        </select>
+                <option selected>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
             <br />
             <select class="form-select" name="married" aria-label="Default select example">
-          <option selected>Married Status</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
+                <option selected>Married Status</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
             <br />
             <select class="form-select" name="dependents" aria-label="Default select example">
           <option selected>Number of Dependents</option>
